@@ -3,3 +3,5 @@
 
 [inline]
 pnpm-lock.yaml
+/index.js
+/index.d.ts
