@@ -2,7 +2,7 @@
   "name": "@lhechenberger/open-webpage-linux-x64-gnu",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "open-webpage.linux-x64-gnu.node",
+  "main": "./open-webpage.linux-x64-gnu.node",
   "files": [
     "open-webpage.linux-x64-gnu.node"
   ],

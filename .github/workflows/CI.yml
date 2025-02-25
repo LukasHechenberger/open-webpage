@@ -248,7 +248,9 @@ jobs:
         run: ls -R ./npm
         shell: bash
       - name: Check published files exist
-        run: pnpm dlx pkg-ok
+        run: |
+          pnpm dlx pkg-ok
+          find . -path './npm/*' -type d -execdir sh -c "cd {} && echo \"\$(npm pkg get name)\" && pnpm dlx pkg-ok" ';'
       - name: Publish
         run: |
           pnpm config set git-checks false

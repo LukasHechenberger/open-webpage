@@ -2,7 +2,7 @@
   "name": "@lhechenberger/open-webpage-darwin-x64",
   "version": "0.0.7",
   "license": "MIT",
-  "main": "open-webpage.darwin-x64.node",
+  "main": "./open-webpage.darwin-x64.node",
   "files": [
     "open-webpage.darwin-x64.node"
   ],
