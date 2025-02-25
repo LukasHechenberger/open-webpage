@@ -31,14 +31,14 @@ jobs:
           - host: windows-latest
             build: pnpm build --target x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
-          - host: ubuntu-latest
-            target: x86_64-unknown-linux-gnu
-            docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
-            build: |
-              npm i -g corepack@latest
-              apt update
-              apt install -y libwebkit2gtk-4.1-dev pkg-config
-              pnpm build --target x86_64-unknown-linux-gnu
+          # - host: ubuntu-latest
+          #   target: x86_64-unknown-linux-gnu
+          #   docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
+          #   build: |
+          #     npm i -g corepack@latest
+          #     apt update
+          #     apt install -y libwebkit2gtk-4.1-dev pkg-config
+          #     pnpm build --target x86_64-unknown-linux-gnu
           - host: macos-latest
             target: aarch64-apple-darwin
             build: pnpm build --target aarch64-apple-darwin
