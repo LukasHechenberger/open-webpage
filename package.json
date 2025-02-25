@@ -11,7 +11,7 @@
     "build:debug": "napi build --platform",
     "dev": "chokidar src/lib.rs -c 'pnpm build' --initial",
     "format": "prettier .",
-    "postinstall": "ignore-sync .",
+    "ignore-sync": "ignore-sync .",
     "prepublishOnly": "napi prepublish -t npm",
     "test": "vitest",
     "universal": "napi universal",
