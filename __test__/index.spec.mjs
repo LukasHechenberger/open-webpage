@@ -1,7 +1,5 @@
-import { test } from 'vitest';
-
-import { openWebpage } from '../js/async.mjs';
-import { expect } from 'vitest';
+import { test, expect } from 'vitest';
+import { openWebpage } from '../out/index.mjs';
 
 test('should launch window', async (t) => {
   const abortController = new AbortController();
