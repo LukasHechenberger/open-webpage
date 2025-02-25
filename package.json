@@ -1,5 +1,6 @@
 {
   "name": "@lhechenberger/open-webpage",
+  "description": "Open a webpage in a custom window from nodejs",
   "version": "0.0.0",
   "license": "MIT",
   "main": "js/async.mjs",

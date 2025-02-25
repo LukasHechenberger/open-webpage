@@ -1,14 +1,11 @@
 import { openWebpage } from '../js/async.mjs';
 
 const controller = new AbortController();
-const cancelSignal = controller.signal;
-
-console.log('Opening webpage...');
-const process = openWebpage({ url: 'https://example.com' }, { cancelSignal });
+const process = openWebpage({ url: 'https://example.com' }, { cancelSignal: controller.signal });
 
 setTimeout(() => {
-  controller.abort();
   console.log('Aborting process...');
+  controller.abort();
 }, [5000]);
 
 try {

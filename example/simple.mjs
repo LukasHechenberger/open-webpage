@@ -1,6 +1,4 @@
 import { openWebpage } from '../js/async.mjs';
 
-openWebpage({ title: 'QRcard', url: 'https://qrcardapp.com' }).then(
-  () => console.log('Done'),
-  console.error,
-);
+await openWebpage({ title: 'QRcard', url: 'https://example.com' });
+console.log('Window was closed');
