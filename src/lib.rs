@@ -43,7 +43,7 @@ impl ResolvedOpenWebpageOptions {
 pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
   println!("Opening webpage:  {:?}", options);
 
-  let mut event_loop = EventLoop::new();
+  let event_loop = EventLoop::new();
   let window = WindowBuilder::new()
     .with_title(options.title)
     // .with_transparent(true)
