@@ -42,11 +42,12 @@ jobs:
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - name: Setup node
         uses: actions/setup-node@v4
         if: ${{ !matrix.settings.docker }}
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - name: Install
         uses: dtolnay/rust-toolchain@stable
@@ -82,7 +83,7 @@ jobs:
         uses: actions/setup-node@v4
         if: matrix.settings.target == 'i686-pc-windows-msvc'
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
           architecture: x86
       - name: Build in docker
@@ -117,9 +118,11 @@ jobs:
         node:
           - '18'
           - '20'
+          - '22'
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
@@ -148,9 +151,11 @@ jobs:
         node:
           - '18'
           - '20'
+          - '22'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
@@ -176,6 +181,7 @@ jobs:
       - test-linux-x64-gnu-binding
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
