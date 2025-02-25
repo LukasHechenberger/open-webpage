@@ -1,5 +1,5 @@
-const { openWebpage } = require('../out/index.js');
+const { openWebpage } = require('@lhechenberger/open-webpage');
 
-openWebpage({ title: 'QRcard', url: 'https://example.com' }).then(() =>
+openWebpage({ title: 'Example', url: 'https://example.com' }).then(() =>
   console.log('Window was closed'),
 );
