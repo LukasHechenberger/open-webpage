@@ -1,6 +1,6 @@
 {
   "name": "@lhechenberger/open-webpage-win32-x64-msvc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "open-webpage.win32-x64-msvc.node",
   "files": [
