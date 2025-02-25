@@ -58,7 +58,7 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
     .unwrap();
 
   let builder = WebViewBuilder::new().with_url(options.url);
-  builder.build(&window).unwrap();
+  let webview = builder.build(&window).unwrap();
 
   event_loop.run(move |event, _, control_flow| {
     // ControlFlow::Poll continuously runs the event loop, even if the OS hasn't
