@@ -8,9 +8,11 @@
   "types": "./out/index.d.ts",
   "scripts": {
     "artifacts": "napi artifacts",
-    "build": "napi build --platform --release && tsup",
+    "build": "pnpm build:release",
     "build:debug": "napi build --platform",
-    "dev": "chokidar src/lib.rs -c 'napi build --platform --release && tsup-dev' --initial",
+    "build:release": "napi build --platform --release",
+    "postbuild": "tsup",
+    "dev": "chokidar src/lib.rs -c 'pnpm build:release && tsup-dev' --initial",
     "format": "prettier .",
     "ignore-sync": "ignore-sync .",
     "prepublishOnly": "napi prepublish -t npm",
