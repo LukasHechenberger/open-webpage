@@ -1,6 +1,6 @@
 {
   "name": "@lhechenberger/open-webpage-darwin-arm64",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "main": "open-webpage.darwin-arm64.node",
   "files": [
