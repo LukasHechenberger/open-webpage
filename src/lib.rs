@@ -75,7 +75,7 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
         event: WindowEvent::CloseRequested,
         ..
       } => {
-        println!("The close button was pressed; stopping");
+        println!("The close button was pressed, stopping...");
         *control_flow = ControlFlow::Exit
       }
       Event::MainEventsCleared => {

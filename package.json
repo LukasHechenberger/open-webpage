@@ -1,6 +1,6 @@
 {
   "name": "@lhechenberger/open-webpage",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Open a webpage in a custom window from nodejs",
   "license": "MIT",
   "main": "js/async.mjs",
@@ -9,7 +9,7 @@
     "artifacts": "napi artifacts",
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
-    "dev": "npx chokidar-cli src/lib.rs -c 'yarn build' --initial",
+    "dev": "chokidar src/lib.rs -c 'pnpm build' --initial",
     "format": "prettier .",
     "postinstall": "ignore-sync .",
     "prepublishOnly": "napi prepublish -t npm",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@napi-rs/cli": "^2.18.4",
     "@types/node": "^22.13.5",
+    "chokidar-cli": "^3.0.0",
     "ignore-sync": "^8.0.0",
     "prettier": "^3.5.2",
     "prettier-plugin-packagejson": "^2.5.8",
@@ -35,9 +36,13 @@
   },
   "napi": {
     "name": "open-webpage",
+    "npmClient": "pnpm",
     "triples": {
+      "defaults": false,
       "additional": [
-        "aarch64-apple-darwin"
+        "aarch64-apple-darwin",
+        "x86_64-apple-darwin",
+        "x86_64-pc-windows-msvc"
       ]
     }
   }
