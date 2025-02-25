@@ -20,6 +20,29 @@ permissions:
       - docs/**
   pull_request: null
 jobs:
+  build-js:
+    name: JS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        if: ${{ !matrix.settings.docker }}
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Lint
+        run: pnpm format --check
+      - name: Build
+        run: pnpm build:js
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: js
+          path: out/**
+          if-no-files-found: error
+
   build:
     strategy:
       fail-fast: false
@@ -141,6 +164,11 @@ jobs:
         with:
           name: bindings-${{ matrix.settings.target }}
           path: .
+      - name: Download JS artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: js
+          path: .
       - name: List packages
         run: ls -R .
         shell: bash
@@ -173,6 +201,11 @@ jobs:
         with:
           name: bindings-x86_64-unknown-linux-gnu
           path: .
+      - name: Download JS artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: js
+          path: .
       - name: List packages
         run: ls -R .
         shell: bash
@@ -183,6 +216,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - test-macOS-windows-binding
+      - build-js
       # - test-linux-x64-gnu-binding
     steps:
       - uses: actions/checkout@v4
@@ -194,15 +228,23 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
-      - name: Download all artifacts
+      - name: Download all bindings
         uses: actions/download-artifact@v4
         with:
           path: artifacts
+          pattern: bindings-*
+      - name: Download JS artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: .
+          name: js
       - name: Move artifacts
         run: pnpm artifacts
       - name: List packages
         run: ls -R ./npm
         shell: bash
+      - name: Check published files exist
+        run: pnpm dlx pkg-ok
       - name: Publish
         run: |
           pnpm config set git-checks false
