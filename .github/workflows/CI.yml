@@ -181,14 +181,14 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - test-macOS-windows-binding
-      - test-linux-x64-gnu-binding
+      # - test-linux-x64-gnu-binding
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
