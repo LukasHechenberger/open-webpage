@@ -71,7 +71,7 @@ jobs:
           - host: macos-latest
             target: aarch64-apple-darwin
             build: pnpm build --target aarch64-apple-darwin
-    name: ${{ matrix.settings.target }} - rust@${{matrix.rust}} node@${{matrix.node}}
+    name: build ${{ matrix.settings.target }}
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v4
@@ -137,7 +137,7 @@ jobs:
           path: ${{ env.APP_NAME }}.*.node
           if-no-files-found: error
   test-macOS-windows:
-    name: Test bindings on ${{ matrix.settings.target }} - node@${{ matrix.node }}
+    name: Test ${{ matrix.settings.target }} - node@${{ matrix.node }}
     needs:
       - build
     strategy:
@@ -250,7 +250,7 @@ jobs:
       - name: Check published files exist
         run: |
           pnpm dlx pkg-ok
-          find . -path './npm/*' -type d -execdir sh -c "cd {} && echo \"\$(npm pkg get name)\" && pnpm dlx pkg-ok" ';'
+          bash ./scripts/pkg-ok.sh
       - name: Publish
         run: |
           pnpm config set git-checks false
