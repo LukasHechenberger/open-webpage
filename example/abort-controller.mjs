@@ -1,4 +1,4 @@
-import { openWebpage } from '../js/async.mjs';
+import { openWebpage } from '@lhechenberger/open-webpage';
 
 const controller = new AbortController();
 const process = openWebpage({ url: 'https://example.com' }, { cancelSignal: controller.signal });
