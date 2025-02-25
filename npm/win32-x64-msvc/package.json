@@ -2,7 +2,7 @@
   "name": "@lhechenberger/open-webpage-win32-x64-msvc",
   "version": "0.0.7",
   "license": "MIT",
-  "main": "open-webpage.win32-x64-msvc.node",
+  "main": "./open-webpage.win32-x64-msvc.node",
   "files": [
     "open-webpage.win32-x64-msvc.node"
   ],
