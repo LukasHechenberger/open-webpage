@@ -1,10 +1,10 @@
-import { join } from 'path';
 import { execaNode } from 'execa';
+import { createRequire } from 'module';
 
-const dirname = new URL('.', import.meta.url).pathname;
+const require = createRequire(import.meta.url);
 
 export function openWebpage(options, execaOptions = {}) {
   return execaNode(
     execaOptions,
-  )`${join(dirname, 'sync/open-webpage.mjs')} ${JSON.stringify(options)}`;
+  )`${require.resolve('./sync/open-webpage.mjs')} ${JSON.stringify(options)}`;
 }
