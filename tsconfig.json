@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "strict": true,
-    "allowJs": true,
-    "checkJs": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "moduleResolution": "bundler",
+    "module": "esnext"
   },
-  "include": ["js/**/*"]
+  "include": ["src-js/**/*"]
 }

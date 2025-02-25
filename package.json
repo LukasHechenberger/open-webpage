@@ -3,13 +3,14 @@
   "version": "0.0.7",
   "description": "Open a webpage in a custom window from nodejs",
   "license": "MIT",
-  "main": "js/async.mjs",
-  "types": "js/async.d.mts",
+  "main": "./out/index.js",
+  "module": "./out/index.mjs",
+  "types": "./out/index.d.ts",
   "scripts": {
     "artifacts": "napi artifacts",
-    "build": "napi build --platform --release",
+    "build": "napi build --platform --release && tsup",
     "build:debug": "napi build --platform",
-    "dev": "chokidar src/lib.rs -c 'pnpm build' --initial",
+    "dev": "chokidar src/lib.rs -c 'napi build --platform --release && tsup-dev' --initial",
     "format": "prettier .",
     "ignore-sync": "ignore-sync .",
     "prepublishOnly": "napi prepublish -t npm",
@@ -18,21 +19,24 @@
     "version": "napi version"
   },
   "dependencies": {
-    "debug": "^4.4.0",
     "execa": "^9.5.2"
   },
   "devDependencies": {
+    "@lhechenberger/tsup-dev": "^0.0.0",
+    "@lhechenberger/tsup-watch-monorepo": "^0.1.0",
     "@napi-rs/cli": "^2.18.4",
     "@types/node": "^22.13.5",
     "chokidar-cli": "^3.0.0",
     "ignore-sync": "^8.0.0",
     "prettier": "^3.5.2",
     "prettier-plugin-packagejson": "^2.5.8",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
     "vitest": "^3.0.7"
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {
-    "node": ">= 10"
+    "node": ">= 18"
   },
   "napi": {
     "name": "open-webpage",
