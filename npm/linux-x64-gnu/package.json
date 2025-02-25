@@ -1,20 +1,20 @@
 {
   "name": "@lhechenberger/open-webpage-linux-x64-gnu",
   "version": "0.0.0",
+  "license": "MIT",
+  "main": "open-webpage.linux-x64-gnu.node",
+  "files": [
+    "open-webpage.linux-x64-gnu.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  },
   "os": [
     "linux"
   ],
   "cpu": [
     "x64"
   ],
-  "main": "open-webpage.linux-x64-gnu.node",
-  "files": [
-    "open-webpage.linux-x64-gnu.node"
-  ],
-  "license": "MIT",
-  "engines": {
-    "node": ">= 10"
-  },
   "libc": [
     "glibc"
   ]

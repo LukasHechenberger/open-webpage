@@ -1,18 +1,18 @@
 {
   "name": "@lhechenberger/open-webpage-win32-x64-msvc",
   "version": "0.0.0",
+  "license": "MIT",
+  "main": "open-webpage.win32-x64-msvc.node",
+  "files": [
+    "open-webpage.win32-x64-msvc.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  },
   "os": [
     "win32"
   ],
   "cpu": [
     "x64"
-  ],
-  "main": "open-webpage.win32-x64-msvc.node",
-  "files": [
-    "open-webpage.win32-x64-msvc.node"
-  ],
-  "license": "MIT",
-  "engines": {
-    "node": ">= 10"
-  }
+  ]
 }

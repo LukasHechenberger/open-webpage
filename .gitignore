@@ -184,7 +184,7 @@ $RECYCLE.BIN/
 #Added by cargo
 
 /target
-Cargo.lock
+# Cargo.lock
 
 .pnp.*
 .yarn/*
@@ -195,3 +195,6 @@ Cargo.lock
 !.yarn/versions
 
 *.node
+
+# Generated files
+.prettierignore

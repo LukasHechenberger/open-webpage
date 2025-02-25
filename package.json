@@ -1,8 +1,40 @@
 {
   "name": "@lhechenberger/open-webpage",
   "version": "0.0.0",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "license": "MIT",
+  "main": "js/async.mjs",
+  "types": "js/async.d.mts",
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "dev": "npx chokidar-cli src/lib.rs -c 'yarn build' --initial",
+    "format": "prettier .",
+    "postinstall": "ignore-sync .",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "ava",
+    "universal": "napi universal",
+    "version": "napi version"
+  },
+  "ava": {
+    "timeout": "3m"
+  },
+  "dependencies": {
+    "debug": "^4.4.0",
+    "execa": "^9.5.2"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.4",
+    "@types/node": "^22.13.5",
+    "ava": "^6.2.0",
+    "ignore-sync": "^8.0.0",
+    "prettier": "^3.5.2",
+    "prettier-plugin-packagejson": "^2.5.8"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">= 10"
+  },
   "napi": {
     "name": "open-webpage",
     "triples": {
@@ -10,33 +42,5 @@
         "aarch64-apple-darwin"
       ]
     }
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@napi-rs/cli": "^2.18.4",
-    "ava": "^6.0.1"
-  },
-  "ava": {
-    "timeout": "3m"
-  },
-  "engines": {
-    "node": ">= 10"
-  },
-  "scripts": {
-    "artifacts": "napi artifacts",
-    "build": "napi build --platform --release",
-    "build:debug": "napi build --platform",
-    "prepublishOnly": "napi prepublish -t npm",
-    "test": "ava",
-    "universal": "napi universal",
-    "version": "napi version"
-  },
-  "_packageManager": "yarn@4.6.0",
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
-  "optionalDependencies": {
-    "@lhechenberger/open-webpage-win32-x64-msvc": "0.0.0",
-    "@lhechenberger/open-webpage-darwin-x64": "0.0.0",
-    "@lhechenberger/open-webpage-linux-x64-gnu": "0.0.0",
-    "@lhechenberger/open-webpage-darwin-arm64": "0.0.0"
   }
 }
