@@ -15,9 +15,14 @@ extern crate napi_derive;
 #[napi(object)]
 #[derive(Debug, Default)]
 pub struct OpenWebpageOptions {
+  /// The URL to open
   pub url: Option<String>,
+  /// The window's title
   pub title: Option<String>,
+  /// If the webpage should be opened fullscreen
   pub fullscreen: Option<bool>,
+  /// Enables devtools
+  pub devtools: Option<bool>,
 }
 
 #[derive(Debug, Clone)]
@@ -25,6 +30,7 @@ pub struct ResolvedOpenWebpageOptions {
   pub url: String,
   pub title: String,
   pub fullscreen: bool,
+  pub devtools: bool,
 }
 
 impl ResolvedOpenWebpageOptions {
@@ -33,9 +39,10 @@ impl ResolvedOpenWebpageOptions {
       url: partial
         .url
         .clone()
-        .unwrap_or("https://exmaple.com".to_string()),
+        .unwrap_or("https://example.com".to_string()),
       title: partial.title.clone().unwrap_or("open-webpage".to_string()),
       fullscreen: partial.fullscreen.unwrap_or(false),
+      devtools: partial.devtools.unwrap_or(false),
     }
   }
 }
@@ -57,7 +64,9 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
     .build(&event_loop)
     .unwrap();
 
-  let builder = WebViewBuilder::new().with_url(options.url);
+  let builder = WebViewBuilder::new()
+    .with_url(options.url)
+    .with_devtools(true);
   let _webview = builder.build(&window).unwrap();
 
   event_loop.run(move |event, _, control_flow| {
