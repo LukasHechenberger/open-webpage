@@ -69,7 +69,7 @@
   },
   "napi": {
     "name": "open-webpage",
-    "npmClient": "pnpm",
+    "npmClient": "pnpm --config.git-checks=false",
     "triples": {
       "defaults": false,
       "additional": [
