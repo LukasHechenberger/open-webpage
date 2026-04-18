@@ -12,5 +12,7 @@ export interface OpenWebpageOptions {
   fullscreen?: boolean
   /** Enables devtools */
   devtools?: boolean
+  /** **macOS only** If the titlebar should be hidden */
+  titlebarHidden?: boolean
 }
 export declare function openWebpage(options?: OpenWebpageOptions | undefined | null): void

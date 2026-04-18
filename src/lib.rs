@@ -1,7 +1,7 @@
 #![deny(clippy::all)]
-use std::str;
 
 use napi::bindgen_prelude::*;
+use napi_derive::napi;
 use tao::{
   event::{Event, WindowEvent},
   event_loop::{ControlFlow, EventLoop},
@@ -9,21 +9,12 @@ use tao::{
 };
 use wry::WebViewBuilder;
 
-#[macro_use]
-extern crate napi_derive;
+#[cfg(target_os = "macos")]
+use tao::platform::macos::WindowBuilderExtMacOS;
 
-#[napi(object)]
-#[derive(Debug, Default)]
-pub struct OpenWebpageOptions {
-  /// The URL to open
-  pub url: Option<String>,
-  /// The window's title
-  pub title: Option<String>,
-  /// If the webpage should be opened fullscreen
-  pub fullscreen: Option<bool>,
-  /// Enables devtools
-  pub devtools: Option<bool>,
-}
+mod types;
+
+pub use types::OpenWebpageOptions;
 
 #[derive(Debug, Clone)]
 pub struct ResolvedOpenWebpageOptions {
@@ -31,6 +22,7 @@ pub struct ResolvedOpenWebpageOptions {
   pub title: String,
   pub fullscreen: bool,
   pub devtools: bool,
+  pub titlebar_hidden: bool,
 }
 
 impl ResolvedOpenWebpageOptions {
@@ -43,6 +35,7 @@ impl ResolvedOpenWebpageOptions {
       title: partial.title.clone().unwrap_or("open-webpage".to_string()),
       fullscreen: partial.fullscreen.unwrap_or(false),
       devtools: partial.devtools.unwrap_or(false),
+      titlebar_hidden: partial.titlebar_hidden.unwrap_or(false),
     }
   }
 }
@@ -51,10 +44,22 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
   println!("Opening webpage:  {:?}", options);
 
   let event_loop = EventLoop::new();
-  let window = WindowBuilder::new()
-    .with_title(options.title)
-    // .with_transparent(true)
+  let window_builder = WindowBuilder::new()
+    // General options
+    .with_title(options.title);
+
+  // macOS specific options
+  #[cfg(target_os = "macos")]
+  let window_builder = window_builder
+    // .with_titlebar_buttons_hidden(true)
+    // .with_fullsize_content_view(true)
     // .with_titlebar_transparent(true)
+    .with_title_hidden(options.titlebar_hidden);
+
+  let window = window_builder
+    // .with_transparent(true)
+    // .with_decorations(false)
+    // .with_focused(true)
     // .with_visible_on_all_workspaces(true)
     // .with_always_on_top(true)
     .with_fullscreen(match options.fullscreen {

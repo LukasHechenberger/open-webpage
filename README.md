@@ -2,10 +2,14 @@
 
 > Open a webpage in a custom window from nodejs
 
+> [!NOTE]  
+> This was basically a playground project for me to get to know napi-rs. I think it turned out pretty well :)
+
 ## Installation
 
 ```shell
-ppnm add @lhechenberger/open-webpage # or yarn add, npm install ...
+bun add @lhechenberger/open-webpage
+pnpm add @lhechenberger/open-webpage # or yarn add, npm install ...
 ```
 
 ## Usage
@@ -50,4 +54,51 @@ try {
 
 **Additional options**
 
+```ts
+import { openWebpage } from '@lhechenberger/open-webpage';
+
+openWebpage(
+  {
+    url: 'https://your.url', // The URL to open
+    title: 'My webpage', // Window title
+    fullscreen: true, // Open in fullscreen
+  },
+  {
+    // Options for execa, see https://www.npmjs.com/package/execa
+  },
+);
+```
+
 There are additional options available to customize the window's appearance, use an IDE to get hints.
+
+## CLI
+
+This package also ships with a small command line application
+
+```shell
+npx @lhechenberger/open-webpage --help # or bunx, pnpx, ...
+
+# or, if you have it installed in your project:
+npx open-webpage --help # or bunx open-webpage, pnpx open-webpage, ...
+```
+
+<!-- #region cli-usage -->
+<!-- This section is generated. Do not edit manually! -->
+
+```ansi
+Usage: npx @lhechenberger/open-webpage [options] [url]
+
+Arguments:
+  url                The URL to open
+
+Options:
+  -V, --version      output the version number
+  --devtools         Enables devtools
+  --fullscreen       If the webpage should be opened fullscreen
+  --title            The window's title
+  --titlebar-hidden  **macOS only** If the titlebar should be hidden
+  -h, --help         display help for command
+
+```
+
+<!-- #endregion cli-usage -->

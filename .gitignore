@@ -199,3 +199,4 @@ $RECYCLE.BIN/
 # Generated files
 out
 .prettierignore
+src-js/__generated__

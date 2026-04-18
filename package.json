@@ -6,14 +6,17 @@
   "main": "./out/index.js",
   "module": "./out/index.mjs",
   "types": "./out/index.d.ts",
+  "bin": {
+    "open-webpage": "./out/bin/index.mjs"
+  },
   "scripts": {
     "artifacts": "napi artifacts",
-    "build": "pnpm build:release",
+    "build": "pnpm build:rust && pnpm build:js",
     "build:debug": "napi build --platform",
     "build:js": "tsup",
-    "build:release": "napi build --platform --release",
-    "postbuild": "pnpm build:js",
+    "build:rust": "napi build --platform --release",
     "dev": "chokidar src/lib.rs -c 'pnpm build:release && tsup-dev' --initial",
+    "dev:rust": "cargo watch build",
     "format": "prettier .",
     "ignore-sync": "ignore-sync .",
     "prepublishOnly": "napi prepublish -t npm",
@@ -22,15 +25,21 @@
     "version": "napi version"
   },
   "dependencies": {
+    "change-case": "^5.4.4",
+    "commander": "^14.0.3",
     "execa": "^9.5.2"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@commander-js/extra-typings": "^14.0.0",
     "@lhechenberger/tsup-dev": "^0.0.0",
     "@lhechenberger/tsup-watch-monorepo": "^0.1.0",
     "@napi-rs/cli": "^2.18.4",
+    "@toolsync/template": "^0.1.2",
     "@types/node": "^22.13.5",
     "chokidar-cli": "^3.0.0",
     "ignore-sync": "^8.0.0",
+    "json-schema-to-ts": "^3.1.1",
     "prettier": "^3.5.2",
     "prettier-plugin-packagejson": "^2.5.8",
     "tsup": "^8.3.6",
@@ -47,6 +56,7 @@
     "triples": {
       "defaults": false,
       "additional": [
+        "x86_64-unknown-linux-gnu",
         "aarch64-apple-darwin",
         "x86_64-apple-darwin",
         "x86_64-pc-windows-msvc"
