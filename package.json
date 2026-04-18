@@ -11,11 +11,10 @@
   },
   "scripts": {
     "artifacts": "napi artifacts",
-    "build": "pnpm build:release",
+    "build": "pnpm build:rust && pnpm build:js",
     "build:debug": "napi build --platform",
     "build:js": "tsup",
-    "build:release": "napi build --platform --release",
-    "postbuild": "pnpm build:js",
+    "build:rust": "napi build --platform --release",
     "dev": "chokidar src/lib.rs -c 'pnpm build:release && tsup-dev' --initial",
     "dev:rust": "cargo watch build",
     "format": "prettier .",
@@ -57,6 +56,7 @@
     "triples": {
       "defaults": false,
       "additional": [
+        "x86_64-unknown-linux-gnu",
         "aarch64-apple-darwin",
         "x86_64-apple-darwin",
         "x86_64-pc-windows-msvc"
