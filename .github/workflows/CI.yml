@@ -198,7 +198,7 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: pnpm publish
+          publish: pnpm publish --no-git-checks
           version: pnpm changeset version
           commitMode: github-api
         env:
