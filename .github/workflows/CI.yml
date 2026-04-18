@@ -198,14 +198,9 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: |
-            pnpm config set git-checks false
-            pnpm config set provenance true
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-            pnpm publish
+          publish: pnpm config set git-checks false && pnpm config set provenance true && pnpm changeset publish
           version: pnpm changeset version
           commitMode: github-api
-          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
