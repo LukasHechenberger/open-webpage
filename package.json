@@ -30,6 +30,7 @@
     "execa": "^9.5.2"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@commander-js/extra-typings": "^14.0.0",
     "@lhechenberger/tsup-dev": "^0.0.0",
     "@lhechenberger/tsup-watch-monorepo": "^0.1.0",
