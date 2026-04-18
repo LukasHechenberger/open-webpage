@@ -34,7 +34,7 @@
     "format": "prettier .",
     "ignore-sync": "ignore-sync .",
     "prepare": "toolsync prepare --config toolsync.json && ignore-sync .",
-    "prepublishOnly": "napi prepublish -t npm --skip-gh-release",
+    "prepublishOnly": "napi pre-publish -t npm --skip-gh-release",
     "test": "vitest",
     "universal": "napi universal",
     "version": "napi version"
