@@ -25,6 +25,7 @@
     "version": "napi version"
   },
   "dependencies": {
+    "change-case": "^5.4.4",
     "commander": "^14.0.3",
     "execa": "^9.5.2"
   },
