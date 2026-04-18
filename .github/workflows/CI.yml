@@ -204,7 +204,7 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: pnpm changeset publish
+          publish: pnpm publish
           version: pnpm changeset version
           commitMode: github-api
           createGithubReleases: false
