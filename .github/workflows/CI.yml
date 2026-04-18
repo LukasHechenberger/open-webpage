@@ -201,9 +201,9 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: bun run changesets:publish
+          publish: pnpm changeset publish
+          version: pnpm changeset version
           commitMode: github-api
-          version: bun run changesets:version
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
