@@ -207,6 +207,7 @@ jobs:
           publish: pnpm changeset publish
           version: pnpm changeset version
           commitMode: github-api
+          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
