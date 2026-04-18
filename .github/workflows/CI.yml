@@ -40,6 +40,8 @@ jobs:
         run: pnpm format --check
       - name: Build
         run: pnpm build:js
+      - name: Ensure git clean
+        run: git diff --exit-code || (echo "There are uncommitted changes!" && exit 1)
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
