@@ -191,12 +191,6 @@ jobs:
         run: pnpm artifacts
       - name: Check published files exist
         run: bash ./scripts/pkg-ok.sh
-      - name: Prepare Release
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          pnpm config set git-checks false
-          pnpm config set provenance true
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - id: changesets
         if: ${{ github.event_name == 'push' }}
         name: Changesets
@@ -204,7 +198,11 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: pnpm publish
+          publish: |
+            pnpm config set git-checks false
+            pnpm config set provenance true
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+            pnpm publish
           version: pnpm changeset version
           commitMode: github-api
           createGithubReleases: false
