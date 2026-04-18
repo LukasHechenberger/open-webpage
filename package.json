@@ -2,12 +2,26 @@
   "name": "@lhechenberger/open-webpage",
   "version": "0.0.8",
   "description": "Open a webpage in a custom window from nodejs",
+  "keywords": [],
+  "homepage": "https://github.com/LukasHechenberger/open-webpage#readme",
+  "bugs": {
+    "url": "https://github.com/LukasHechenberger/open-webpage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasHechenberger/open-webpage.git"
+  },
   "license": "MIT",
+  "author": "Lukas Hechenberger <npm@ls-age.com> (https://ls-age.com/)",
   "main": "./out/index.js",
   "module": "./out/index.mjs",
   "types": "./out/index.d.ts",
   "bin": {
     "open-webpage": "./out/bin/index.mjs"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
   },
   "scripts": {
     "artifacts": "napi artifacts",
@@ -19,6 +33,7 @@
     "dev:rust": "cargo watch build",
     "format": "prettier .",
     "ignore-sync": "ignore-sync .",
+    "prepare": "toolsync prepare --config toolsync.json",
     "prepublishOnly": "napi prepublish -t npm",
     "test": "vitest",
     "universal": "napi universal",
@@ -35,12 +50,14 @@
     "@lhechenberger/tsup-dev": "^0.0.0",
     "@lhechenberger/tsup-watch-monorepo": "^0.1.0",
     "@napi-rs/cli": "^2.18.4",
+    "@toolsync/builtin": "^0.6.4",
+    "@toolsync/cli": "^0.4.5",
     "@toolsync/template": "^0.1.2",
     "@types/node": "^22.13.5",
     "chokidar-cli": "^3.0.0",
     "ignore-sync": "^8.0.0",
     "json-schema-to-ts": "^3.1.1",
-    "prettier": "^3.5.2",
+    "prettier": "^3.8.3",
     "prettier-plugin-packagejson": "^2.5.8",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",
