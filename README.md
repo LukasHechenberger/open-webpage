@@ -15,8 +15,8 @@ Open a webpage in a custom window from nodejs
 ## Installation
 
 ```shell
-bun add @lhechenberger/open-webpage
-pnpm add @lhechenberger/open-webpage # or yarn add, npm install ...
+pnpm add @lhechenberger/open-webpage
+# or bun add, yarn add, npm install ...
 ```
 
 ## Usage

@@ -107,18 +107,21 @@ jobs:
           if-no-files-found: error
 
   test:
-    name: Test ${{ matrix.settings.target }} - node@${{ matrix.node }}
+    name: Test ${{ matrix.settings.name }} (node v${{ matrix.node }})
     needs:
       - build
     strategy:
       fail-fast: false
       matrix:
         settings:
-          - host: macos-latest
+          - name: macOS
+            host: macos-latest
             target: x86_64-apple-darwin
-          - host: windows-latest
+          - name: Windows
+            host: windows-latest
             target: x86_64-pc-windows-msvc
-          - host: ubuntu-latest
+          - name: Linux
+            host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
         node:
           - '22'
