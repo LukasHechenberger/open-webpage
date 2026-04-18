@@ -166,6 +166,9 @@ jobs:
       - test
     steps:
       - uses: actions/checkout@v5
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
       - uses: pnpm/action-setup@v5
       - name: Setup node
         uses: actions/setup-node@v5
@@ -188,6 +191,12 @@ jobs:
         run: pnpm artifacts
       - name: Check published files exist
         run: bash ./scripts/pkg-ok.sh
+      - name: Prepare Release
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          pnpm config set git-checks false
+          pnpm config set provenance true
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - id: changesets
         if: ${{ github.event_name == 'push' }}
         name: Changesets
