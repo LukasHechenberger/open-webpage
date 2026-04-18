@@ -76,5 +76,28 @@ There are additional options available to customize the window's appearance, use
 This package also ships with a small command line application
 
 ```shell
-npx @lhechenberger/open-webpage --help
+npx @lhechenberger/open-webpage --help # or bunx, pnpx, ...
+
+# or, if you have it installed in your project:
+npx open-webpage --help # or bunx open-webpage, pnpx open-webpage, ...
 ```
+
+<!-- #region cli-usage -->
+<!-- This section is generated. Do not edit manually! -->
+
+```ansi
+Usage: npx @lhechenberger/open-webpage [options] [url]
+
+Arguments:
+  url            The URL to open
+
+Options:
+  -V, --version  output the version number
+  --devtools     Enables devtools
+  --fullscreen   If the webpage should be opened fullscreen
+  --title        The window's title
+  -h, --help     display help for command
+
+```
+
+<!-- #endregion cli-usage -->

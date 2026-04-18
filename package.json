@@ -34,6 +34,7 @@
     "@lhechenberger/tsup-dev": "^0.0.0",
     "@lhechenberger/tsup-watch-monorepo": "^0.1.0",
     "@napi-rs/cli": "^2.18.4",
+    "@toolsync/template": "^0.1.2",
     "@types/node": "^22.13.5",
     "chokidar-cli": "^3.0.0",
     "ignore-sync": "^8.0.0",

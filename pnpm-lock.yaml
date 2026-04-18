@@ -30,6 +30,9 @@ importers:
       '@napi-rs/cli':
         specifier: ^2.18.4
         version: 2.18.4
+      '@toolsync/template':
+        specifier: ^0.1.2
+        version: 0.1.2
       '@types/node':
         specifier: ^22.13.5
         version: 22.13.5
@@ -541,6 +544,11 @@ packages:
   '@sindresorhus/merge-streams@4.0.0':
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
+
+  '@toolsync/template@0.1.2':
+    resolution: {integrity: sha512-cN19FoWfk6p18EoI2AzPFrsUlA4QNIhchZrqPpXnlmQXNuvmqh2pkOvVntSTDXhXA0JsY9qS3qljaoJXr83R0g==}
+    engines: {node: '>=20.6.0'}
+    hasBin: true
 
   '@tsconfig/node10@1.0.12':
     resolution: {integrity: sha512-UCYBaeFvM11aU2y3YPZ//O5Rhj+xKyzy7mvcIoAjASbigy8mHMryP5cK7dgjlz2hWxh1g5pLw084E0a/wlUSFQ==}
@@ -1893,6 +1901,10 @@ snapshots:
   '@sec-ant/readable-stream@0.4.1': {}
 
   '@sindresorhus/merge-streams@4.0.0': {}
+
+  '@toolsync/template@0.1.2':
+    dependencies:
+      commander: 14.0.3
 
   '@tsconfig/node10@1.0.12': {}
 
