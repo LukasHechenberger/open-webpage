@@ -9,8 +9,8 @@ crate-type = ["cdylib"]
 [dependencies]
 futures = "0.3.31"
 # Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
-napi = { version = "2.12.2", default-features = false, features = ["napi8", "async"] }
-napi-derive = "2.12.2"
+napi = { version = "3.8.5", default-features = false, features = ["napi8", "async"] }
+napi-derive = "3.5.4"
 schemars = { version = "1.2.1", features = ["derive"] }
 tao = "0.32.1"
 tokio = "1.43.0"
@@ -18,9 +18,9 @@ ts-rs = "12.0.1"
 wry = { version = "0.55.0", features = ["devtools"] }
 
 [build-dependencies]
-napi = { version = "2.12.2", default-features = false, features = ["napi8", "async"] }
-napi-build = "2.0.1"
-napi-derive = "2.12.2"
+napi = { version = "3.8.5", default-features = false, features = ["napi8", "async"] }
+napi-build = "2.3.1"
+napi-derive = "3.5.4"
 schemars = { version = "1.2.1", features = ["derive"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
