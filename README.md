@@ -20,6 +20,10 @@ await openWebpage({ url: 'https://example.com' });
 console.log('Window was closed');
 ```
 
+...which results in a simple native window popping up, looking like this:
+
+![A simple example](docs/assets/screenshot-simple-example.png)
+
 **You can also use an abort controller to close the page manually**
 
 ```js
