@@ -1,4 +1,5 @@
 {
+  "@toolsync/builtin/ignore-sync": {},
   "@toolsync/builtin/package-meta": {},
   "@toolsync/builtin/package-readme": {},
   "@toolsync/builtin/pnpm": {}

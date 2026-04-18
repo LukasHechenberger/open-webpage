@@ -33,7 +33,7 @@
     "dev:rust": "cargo watch build",
     "format": "prettier .",
     "ignore-sync": "ignore-sync .",
-    "prepare": "toolsync prepare --config toolsync.json",
+    "prepare": "toolsync prepare --config toolsync.json && ignore-sync .",
     "prepublishOnly": "napi prepublish -t npm",
     "test": "vitest",
     "universal": "napi universal",

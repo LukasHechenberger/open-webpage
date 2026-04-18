@@ -96,6 +96,8 @@ jobs:
         run: |
           pnpm prepare
           pnpm build:js
+          pnpm format --check
+          pnpm test
       - name: Ensure git clean
         run: git diff --exit-code || (echo "There are uncommitted changes!" && exit 1)
       - name: Upload JS Artifact
