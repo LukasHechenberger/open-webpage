@@ -89,14 +89,15 @@ npx open-webpage --help # or bunx open-webpage, pnpx open-webpage, ...
 Usage: npx @lhechenberger/open-webpage [options] [url]
 
 Arguments:
-  url            The URL to open
+  url                The URL to open
 
 Options:
-  -V, --version  output the version number
-  --devtools     Enables devtools
-  --fullscreen   If the webpage should be opened fullscreen
-  --title        The window's title
-  -h, --help     display help for command
+  -V, --version      output the version number
+  --devtools         Enables devtools
+  --fullscreen       If the webpage should be opened fullscreen
+  --title            The window's title
+  --titlebar-hidden  **macOS only** If the titlebar should be hidden
+  -h, --help         display help for command
 
 ```
 

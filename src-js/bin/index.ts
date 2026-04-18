@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 
-import { program } from 'commander';
+import { Command } from 'commander';
 import { version, name } from '../../package.json';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { kebabCase } from 'change-case';
-import { properties } from '../__generated__/options.schema.json';
+import {
+  OpenWebpageOptionsSchema,
+  type OpenWebpageOptions,
+} from '../__generated__/OpenWebpageOptions';
+
+const { properties } = OpenWebpageOptionsSchema;
+
+const program = new Command<[string], OpenWebpageOptions>();
 
 program.name(`npx ${name}`).version(version);
 
