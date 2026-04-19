@@ -1,18 +1,29 @@
 {
   "name": "@lhechenberger/open-webpage-darwin-x64",
-  "version": "0.0.8",
-  "license": "MIT",
-  "main": "./open-webpage.darwin-x64.node",
+  "version": "0.1.1",
+  "cpu": [
+    "x64"
+  ],
+  "main": "open-webpage.darwin-x64.node",
   "files": [
     "open-webpage.darwin-x64.node"
   ],
+  "description": "Open a webpage in a custom window from nodejs",
+  "keywords": [],
+  "author": "Lukas Hechenberger <npm@ls-age.com> (https://ls-age.com/)",
+  "homepage": "https://github.com/LukasHechenberger/open-webpage#readme",
+  "license": "MIT",
   "engines": {
-    "node": ">= 10"
+    "node": ">= 18.17.0 < 19 || >= 20.3.0 < 21 || >= 21.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasHechenberger/open-webpage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LukasHechenberger/open-webpage/issues"
   },
   "os": [
     "darwin"
-  ],
-  "cpu": [
-    "x64"
   ]
 }
