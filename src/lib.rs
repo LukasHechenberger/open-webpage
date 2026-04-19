@@ -54,7 +54,7 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
     // .with_titlebar_buttons_hidden(true)
     // .with_fullsize_content_view(true)
     // .with_titlebar_transparent(true)
-    .with_title_hidden(options.titlebar_hidden);
+    .with_titlebar_hidden(options.titlebar_hidden);
 
   let window = window_builder
     // .with_transparent(true)
