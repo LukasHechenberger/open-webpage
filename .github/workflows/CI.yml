@@ -195,8 +195,6 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         name: Changesets
         uses: changesets/action@v1
-        env:
-          npm_config_git_checks=false
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
