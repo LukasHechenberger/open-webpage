@@ -101,7 +101,7 @@ jobs:
         run: pnpm build:rust --target ${{ matrix.settings.target }}
         shell: bash
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: bindings-${{ matrix.settings.target }}
           path: |
@@ -119,7 +119,7 @@ jobs:
         run: git diff --exit-code || (echo "There are uncommitted changes!" && exit 1)
       - name: Upload JS Artifact
         if: matrix.settings.buildJavascript
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: js
           path: out
@@ -217,7 +217,7 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: pnpm publish
+          publish: pnpm changeset publish
           version: pnpm changeset version
           commitMode: github-api
         env:
