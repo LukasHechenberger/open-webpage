@@ -59,22 +59,34 @@ try {
 }
 ```
 
-**Additional options**
+**Available options**
+
+<!-- #region sdk-usage -->
+<!-- This section is generated. Do not edit manually! -->
 
 ```ts
 import { openWebpage } from '@lhechenberger/open-webpage';
 
 openWebpage(
   {
-    url: 'https://your.url', // The URL to open
-    title: 'My webpage', // Window title
-    fullscreen: true, // Open in fullscreen
+    // Enables devtools
+    devtools: true,
+    // If the webpage should be opened fullscreen
+    fullscreen: true,
+    // The window's title
+    title: 'some string',
+    // **macOS only** If the titlebar should be hidden
+    titlebarHidden: true,
+    // The URL to open
+    url: 'some string',
   },
   {
-    // Options for execa, see https://www.npmjs.com/package/execa
+    // (optional) options for execa, see https://www.npmjs.com/package/execa
   },
 );
 ```
+
+<!-- #endregion sdk-usage -->
 
 There are additional options available to customize the window's appearance, use an IDE to get hints.
 
