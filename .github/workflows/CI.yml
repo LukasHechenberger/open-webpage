@@ -192,6 +192,10 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
+      - name: Cache Rust build artifacts
+        uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: x86_64-unknown-linux-gnu
       - name: Install Linux system dependencies
         if: ${{ runner.os == 'Linux' }}
         uses: awalsh128/cache-apt-pkgs-action@v1
