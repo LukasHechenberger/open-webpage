@@ -10,9 +10,9 @@ import {
   type OpenWebpageOptions,
 } from '../__generated__/OpenWebpageOptions';
 
-const { properties } = OpenWebpageOptionsSchema;
+const { properties, required } = OpenWebpageOptionsSchema;
 
-const program = new Command<[string], OpenWebpageOptions>();
+const program = new Command<[string], Omit<OpenWebpageOptions, (typeof required)[number]>>();
 
 program.name(`npx ${name}`).version(version);
 
@@ -20,7 +20,7 @@ for (const [_name, { description }] of Object.entries(properties)) {
   const name = kebabCase(_name);
 
   // Use url as an argument
-  if (name === 'url') {
+  if ((required as readonly string[]).includes(_name)) {
     program.argument(`[${name}]`, description);
   } else {
     program.option(`--${name}`, description);

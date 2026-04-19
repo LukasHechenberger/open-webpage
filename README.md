@@ -75,6 +75,8 @@ openWebpage(
     fullscreen: true,
     // The window's title
     title: 'some string',
+    // **macOS only** If the window title should be hidden
+    titleHidden: true,
     // **macOS only** If the titlebar should be hidden
     titlebarHidden: true,
     // The URL to open
@@ -115,6 +117,7 @@ Options:
   --devtools         Enables devtools
   --fullscreen       If the webpage should be opened fullscreen
   --title            The window's title
+  --title-hidden     **macOS only** If the window title should be hidden
   --titlebar-hidden  **macOS only** If the titlebar should be hidden
   -h, --help         display help for command
 
