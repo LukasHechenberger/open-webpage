@@ -211,17 +211,16 @@ jobs:
       - name: Check published files exist
         run: bash ./scripts/pkg-ok.sh
       - id: changesets
-        if: ${{ github.event_name == 'push' }}
+        # if: ${{ github.event_name == 'push' }}
         name: Changesets
         uses: changesets/action@v1
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: pnpm publish --no-git-checks
+          publish: pnpm publish
           version: pnpm changeset version
           commitMode: github-api
         env:
-          npm_config_git_checks: 'false'
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
