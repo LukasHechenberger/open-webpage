@@ -29,6 +29,7 @@
     "build:debug": "napi build --platform",
     "build:js": "tsup",
     "build:rust": "napi build --platform --release",
+    "changeset:version": "pnpm changeset version && napi build --platform",
     "dev": "chokidar src/lib.rs -c 'pnpm build:release && tsup-dev' --initial",
     "dev:rust": "cargo watch build",
     "format": "prettier .",
