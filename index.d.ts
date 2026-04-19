@@ -4,7 +4,7 @@ export declare function openWebpage(options?: OpenWebpageOptions | undefined | n
 
 export interface OpenWebpageOptions {
   /** The URL to open */
-  url?: string
+  url: string
   /** The window's title */
   title?: string
   /** If the webpage should be opened fullscreen */
@@ -13,4 +13,6 @@ export interface OpenWebpageOptions {
   devtools?: boolean
   /** **macOS only** If the titlebar should be hidden */
   titlebarHidden?: boolean
+  /** **macOS only** If the window title should be hidden */
+  titleHidden?: boolean
 }

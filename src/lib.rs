@@ -22,20 +22,23 @@ pub struct ResolvedOpenWebpageOptions {
   pub title: String,
   pub fullscreen: bool,
   pub devtools: bool,
+
+  // macOS
   pub titlebar_hidden: bool,
+  pub title_hidden: bool,
 }
 
 impl ResolvedOpenWebpageOptions {
   pub fn from_partial(partial: &OpenWebpageOptions) -> Self {
     Self {
-      url: partial
-        .url
-        .clone()
-        .unwrap_or("https://example.com".to_string()),
+      url: partial.url.clone(),
       title: partial.title.clone().unwrap_or("open-webpage".to_string()),
       fullscreen: partial.fullscreen.unwrap_or(false),
       devtools: partial.devtools.unwrap_or(false),
+
+      // macOS
       titlebar_hidden: partial.titlebar_hidden.unwrap_or(false),
+      title_hidden: partial.title_hidden.unwrap_or(false),
     }
   }
 }
@@ -54,6 +57,7 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
     // .with_titlebar_buttons_hidden(true)
     // .with_fullsize_content_view(true)
     // .with_titlebar_transparent(true)
+    .with_title_hidden(options.title_hidden)
     .with_titlebar_hidden(options.titlebar_hidden);
 
   let window = window_builder
@@ -72,6 +76,7 @@ pub fn open_webpage_with_options(options: ResolvedOpenWebpageOptions) {
   let builder = WebViewBuilder::new()
     .with_url(options.url)
     .with_devtools(true);
+
   let _webview = builder.build(&window).unwrap();
 
   event_loop.run(move |event, _, control_flow| {
