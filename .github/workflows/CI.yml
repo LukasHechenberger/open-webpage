@@ -217,11 +217,10 @@ jobs:
         with:
           commit: 'chore: Update versions'
           title: 'chore: Update versions'
-          publish: pnpm publish --no-git-checks
+          publish: pnpm publish
           version: pnpm changeset version
           commitMode: github-api
         env:
-          npm_config_git_checks: 'false'
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
